@@ -36,7 +36,7 @@ class ZoomingIconTransition: NSObject, UIViewControllerAnimatedTransitioning,UIN
         toViewController.view.alpha = 0
     
         
-        UIView.animateWithDuration(3, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             toViewController.view.alpha = 1
         }) { (Bool) -> Void in
             transitionContext.completeTransition(true)

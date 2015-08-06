@@ -41,6 +41,15 @@ class MenuCollectionViewController: UICollectionViewController {
         masterArray = [sectionOne, sectionTwo]
         
     }
+    
+    //MARK - segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "DetailViewController" {
+            var DetailVC: DetailViewController = segue.destinationViewController as! DetailViewController
+            let indexPath = sender as! NSIndexPath
+            DetailVC.item = masterArray[indexPath.section][indexPath.row] as? SocialItem
+        }
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -79,7 +88,7 @@ class MenuCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("DetailViewController", sender: self)
+        performSegueWithIdentifier("DetailViewController", sender: indexPath)
     
     }
     
